@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<section class="panel"><h1>Registrar distribuição</h1><form method="post">
+<label for="item_id">Item *</label><select id="item_id" name="item_id" required><option value="">Selecione</option>{% for i in items %}
+<option value="{{i['id']}}">{{i['name']}} — saldo: {{i['quantity']}}</option>{% endfor %}</select>
+<label for="quantity">Quantidade distribuída *</label><input id="quantity" name="quantity" type="number" min="1" required>
+<label for="distributed_on">Data *</label><input id="distributed_on" name="distributed_on" type="date" required>
+<label for="observation">Observações</label><textarea id="observation" name="observation"></textarea><button>Registrar distribuição</button></form></section>{% endblock %}

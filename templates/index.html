@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<h1>Gestão de Doações Comunitárias</h1><p>Organize doações, acompanhe o estoque e registre distribuições.</p>
+<div class="stats"><section class="panel">Itens cadastrados<strong>{{ totals["items"] }}</strong></section><section class="panel">Unidades em estoque<strong>{{ totals["units"] }}</strong></section></div>
+<h2>O que deseja fazer?</h2><div class="actions"><a href="{{ url_for('donation') }}">Cadastrar doação</a><a href="{{ url_for('stock') }}">Consultar estoque</a>
+<a href="{{ url_for('distribution') }}">Registrar distribuição</a><a href="{{ url_for('history') }}">Histórico de movimentações</a></div>
+<h2>Últimas movimentações</h2>{% if movements %}<table><tr><th>Data</th><th>Item</th><th>Tipo</th><th>Quantidade</th></tr>
+{% for m in movements %}<tr><td>{{m["created_at"]}}</td><td>{{m["item_name"]}}</td><td>{{m["movement_type"]}}</td><td>{{m["quantity"]}}</td></tr>{% endfor %}</table>{% else %}<p>Nenhuma movimentação cadastrada.</p>{% endif %}{% endblock %}

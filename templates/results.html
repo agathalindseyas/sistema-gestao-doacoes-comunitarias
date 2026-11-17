@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}<section class="panel"><h1>Resultado da operação</h1><p class="alert success">Operação registrada. Saldo atualizado.</p>
+<h2>{{item['name']}}</h2><p>Saldo atual: <strong>{{item['quantity']}} unidade(s)</strong></p><h2>Últimas movimentações</h2>
+<table><tr><th>Data</th><th>Tipo</th><th>Quantidade</th><th>Observação</th></tr>{% for m in movements %}
+<tr><td>{{m['created_at']}}</td><td>{{m['movement_type']}}</td><td>{{m['quantity']}}</td><td>{{m['observation'] or '—'}}</td></tr>{% endfor %}</table>
+<div class="actions"><a href="{{url_for('donation')}}">Nova doação</a><a href="{{url_for('distribution')}}">Registrar distribuição</a><a href="{{url_for('stock')}}">Consultar estoque</a><a href="{{url_for('index')}}">Voltar ao menu</a></div></section>{% endblock %}
