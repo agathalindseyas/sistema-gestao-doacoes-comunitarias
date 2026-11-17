@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}<section class="panel"><h1>Cadastrar doação</h1><form method="post">
+<label for="name">Nome do item *</label><input id="name" name="name" required value="{{form.get('name','')}}">
+<label for="description">Descrição</label><input id="description" name="description" value="{{form.get('description','')}}">
+<label for="category">Categoria</label><input id="category" name="category" value="{{form.get('category','')}}">
+<label for="quantity">Quantidade recebida *</label><input id="quantity" name="quantity" type="number" min="1" step="1" required value="{{form.get('quantity','')}}">
+<label for="received_on">Data de recebimento *</label><input id="received_on" name="received_on" type="date" required value="{{form.get('received_on','')}}">
+<label for="observation">Observações</label><textarea id="observation" name="observation">{{form.get('observation','')}}</textarea>
+<button>Salvar doação</button> <a class="secondary" href="{{url_for('index')}}">Cancelar</a></form></section>{% endblock %}

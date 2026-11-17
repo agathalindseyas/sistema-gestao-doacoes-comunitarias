@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block content %}<h1>Consulta de estoque</h1><form method="get"><label for="q">Pesquisar item</label><input id="q" name="q" value="{{term}}"><button>Pesquisar</button></form>
+<table><tr><th>Item</th><th>Descrição</th><th>Categoria</th><th>Quantidade</th></tr>{% for i in items %}<tr><td>{{i['name']}}</td><td>{{i['description'] or '—'}}</td><td>{{i['category'] or '—'}}</td><td>{{i['quantity']}}</td></tr>{% endfor %}</table>{% endblock %}

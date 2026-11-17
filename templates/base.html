@@ -1,0 +1,7 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Gestão de Doações{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><header><a href="{{ url_for('index') }}">♥ Gestão de Doações Comunitárias</a>
+{% if session.get('user_id') %}<nav><a href="{{ url_for('index') }}">Início</a><a href="{{ url_for('stock') }}">Estoque</a><a href="{{ url_for('history') }}">Histórico</a>
+<form method="post" action="{{ url_for('logout') }}"><button class="textbtn">Sair</button></form></nav>{% endif %}</header>
+<main>{% with messages=get_flashed_messages(with_categories=true) %}{% for c,m in messages %}<p class="alert {{ c }}" role="status">{{ m }}</p>{% endfor %}{% endwith %}
+{% block content %}{% endblock %}</main><footer>Protótipo acadêmico — utilize dados fictícios.</footer></body></html>

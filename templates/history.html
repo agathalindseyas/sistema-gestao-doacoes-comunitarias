@@ -1,0 +1,2 @@
+{% extends "base.html" %}{% block content %}<h1>Histórico de movimentações</h1><table><tr><th>Data</th><th>Item</th><th>Tipo</th><th>Quantidade</th></tr>
+{% for m in movements %}<tr><td>{{m['created_at']}}</td><td>{{m['item_name']}}</td><td>{{m['movement_type']}}</td><td>{{m['quantity']}}</td></tr>{% endfor %}</table>{% endblock %}
